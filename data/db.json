@@ -1,0 +1,114 @@
+{
+    "trips": [
+        {
+            "id": 1,
+            "name": "Berlin Trip",
+            "targetCountry": "Niemcy",
+            "startDate": "2024-01-10",
+            "endDate": "2024-01-15",
+            "price": 2300,
+            "amountOfFreePlaces": 11,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ipsam sint consequuntur officiis iste amet eligendi, quisquam itaque voluptatum aperiam, minima nisi obcaecati deleniti molestiae rem! Iusto impedit id minima!",
+            "imgSrc": "assets/images/cities/small/berlin_small.jpeg"
+        },
+        {
+            "id": 2,
+            "name": "Chicago Trip",
+            "targetCountry": "Stany Zjednoczone",
+            "startDate": "2024-01-10",
+            "endDate": "2024-01-21",
+            "price": 4100,
+            "amountOfFreePlaces": 11,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ipsam sint consequuntur officiis iste amet eligendi, quisquam itaque voluptatum aperiam, minima nisi obcaecati deleniti molestiae rem! Iusto impedit id minima!",
+            "imgSrc": "assets/images/cities/small/chicago_small.jpeg"
+        },
+        {
+            "id": 3,
+            "name": "Cracow Trip",
+            "targetCountry": "Polska",
+            "startDate": "2024-01-10",
+            "endDate": "2024-01-15",
+            "price": 5200,
+            "amountOfFreePlaces": 11,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ipsam sint consequuntur officiis iste amet eligendi, quisquam itaque voluptatum aperiam, minima nisi obcaecati deleniti molestiae rem! Iusto impedit id minima!",
+            "imgSrc": "assets/images/cities/small/cracow_small.jpeg"
+        },
+        {
+            "id": 4,
+            "name": "Warsaw Trip",
+            "targetCountry": "Polska",
+            "startDate": "2024-01-10",
+            "endDate": "2024-01-15",
+            "price": 1200,
+            "amountOfFreePlaces": 11,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ipsam sint consequuntur officiis iste amet eligendi, quisquam itaque voluptatum aperiam, minima nisi obcaecati deleniti molestiae rem! Iusto impedit id minima!",
+            "imgSrc": "assets/images/cities/small/warsaw_small.jpeg"
+        },
+        {
+            "id": 5,
+            "name": "Sydney Trip",
+            "targetCountry": "Australia",
+            "startDate": "2024-01-10",
+            "endDate": "2024-01-15",
+            "price": 3400,
+            "amountOfFreePlaces": 11,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ipsam sint consequuntur officiis iste amet eligendi, quisquam itaque voluptatum aperiam, minima nisi obcaecati deleniti molestiae rem! Iusto impedit id minima!",
+            "imgSrc": "assets/images/cities/small/sydney_small.jpeg"
+        },
+        {
+            "id": 6,
+            "name": "Berlin Trip",
+            "targetCountry": "Niemcy",
+            "startDate": "2024-01-10",
+            "endDate": "2024-01-15",
+            "price": 2300,
+            "amountOfFreePlaces": 11,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ipsam sint consequuntur officiis iste amet eligendi, quisquam itaque voluptatum aperiam, minima nisi obcaecati deleniti molestiae rem! Iusto impedit id minima!",
+            "imgSrc": "assets/images/cities/small/berlin_small.jpeg"
+        },
+        {
+            "id": 7,
+            "name": "Chicago Trip",
+            "targetCountry": "Stany Zjednoczone",
+            "startDate": "2024-01-10",
+            "endDate": "2024-01-21",
+            "price": 4100,
+            "amountOfFreePlaces": 11,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ipsam sint consequuntur officiis iste amet eligendi, quisquam itaque voluptatum aperiam, minima nisi obcaecati deleniti molestiae rem! Iusto impedit id minima!",
+            "imgSrc": "assets/images/cities/small/chicago_small.jpeg"
+        },
+        {
+            "id": 8,
+            "name": "Cracow Trip",
+            "targetCountry": "Polska",
+            "startDate": "2024-01-10",
+            "endDate": "2024-01-15",
+            "price": 5200,
+            "amountOfFreePlaces": 11,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ipsam sint consequuntur officiis iste amet eligendi, quisquam itaque voluptatum aperiam, minima nisi obcaecati deleniti molestiae rem! Iusto impedit id minima!",
+            "imgSrc": "assets/images/cities/small/cracow_small.jpeg"
+        },
+        {
+            "id": 9,
+            "name": "Warsaw Trip",
+            "targetCountry": "Polska",
+            "startDate": "2024-01-10",
+            "endDate": "2024-01-15",
+            "price": 1200,
+            "amountOfFreePlaces": 11,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ipsam sint consequuntur officiis iste amet eligendi, quisquam itaque voluptatum aperiam, minima nisi obcaecati deleniti molestiae rem! Iusto impedit id minima!",
+            "imgSrc": "assets/images/cities/small/warsaw_small.jpeg"
+        },
+        {
+            "id": 10,
+            "name": "Sydney Trip",
+            "targetCountry": "Australia",
+            "startDate": "2024-01-10",
+            "endDate": "2024-01-15",
+            "price": 3400,
+            "amountOfFreePlaces": 11,
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ipsam sint consequuntur officiis iste amet eligendi, quisquam itaque voluptatum aperiam, minima nisi obcaecati deleniti molestiae rem! Iusto impedit id minima!",
+            "imgSrc": "assets/images/cities/small/sydney_small.jpeg"
+        }
+    ]
+}

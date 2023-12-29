@@ -1,0 +1,27 @@
+<nav class="navbar bg-dark navbar-dark navbar-expand-lg sticky-top p-3">
+
+    <div class="d-flex align-items-center w-75">
+        <a routerLink="/" class="navbar-brand">Przęglądarka zdjęć i postów</a>
+        <div class="d-flex justify-content-end w-100">
+            <span class="text-white d-none d-lg-block p-1 rounded" [ngClass]="numberOfAddedTrips < 10 ? 'bg-danger' : 'bg-success'">Ilość dodanych wycieczek: {{numberOfAddedTrips}}</span>
+        </div>
+    </div>
+    
+    <button type="button" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarNav" data-bs-toggle="collapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+   
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav text-end w-100 d-flex justify-content-end" id="navScrollspy"> 
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/posts" routerLinkActive="active">Posty</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/images" routerLinkActive="active">Zdjęcia</a>
+            </li>
+        </ul>
+    </div>
+</nav> 
