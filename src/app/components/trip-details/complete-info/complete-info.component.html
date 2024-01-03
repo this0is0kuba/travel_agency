@@ -1,0 +1,49 @@
+<div class="d-flex align-items-center">
+
+    <div class="lead text-nowrap p-5">
+    
+        <div class="d-flex align-items-center">
+            <i class="ms-2 bi bi-globe-americas"></i>
+            <span class="ms-2">{{trip.targetCountry | uppercase}}</span>
+        </div>
+    
+        <div class="d-flex align-items-center">
+            <i class="ms-2 bi bi-calendar"></i>
+            <span class="ms-2">
+                {{trip.startDate}} <i class="bi bi-arrow-right-short"></i> {{trip.endDate}} ({{numberOfDays + ' dni'}})
+            </span>
+        </div>
+    
+        <div class="d-flex align-items-center">
+            <i class="bi bi-people-fill ms-2"></i>
+            <span class="ms-2" [ngClass]="trip.amountOfFreePlaces - purchasedNumber <= 3 ? 'text-danger fs-4' : 'text-dark'" >Pozostało miejsc: {{trip.amountOfFreePlaces - purchasedNumber}}</span>
+        </div>
+    
+    </div>
+
+    <div class="p-5">
+        <h5>Opis</h5>
+        <p>{{trip.description }}</p>
+    </div>
+</div>
+
+<div>
+    <div class="d-flex align-items-center justify-content-center mt-3">
+        <i class="bi bi-cash h3 text-success ms-2"></i>
+        <h3 class="ms-2">Koszt: {{convertedPrice| currency : selectedCurrency}}</h3>
+        <button class="btn btn-info ms-2 rounded-circle" (click)="changeCurrency()" ><i class="bi bi-currency-exchange"></i></button>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center m-2">
+        <button class="btn border border-dark rounded btn-success" [ngClass]="purchasedNumber == trip.amountOfFreePlaces ? 'invisible' : 'visible'" (click)="addTrip()">
+            <i class="bi bi-plus-lg"></i>
+        </button>
+
+        <span class="p-2">Aktualnie Dodałeś: {{purchasedNumber}}</span>
+
+        <button class="btn border border-dark rounded btn-danger" [ngClass]="purchasedNumber == 0 ? 'invisible' : 'visible'" (click)="removeTrip()">
+            <i class="bi bi-dash-lg"></i>
+        </button>
+    </div>
+</div>
+

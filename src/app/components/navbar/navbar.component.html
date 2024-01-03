@@ -1,7 +1,7 @@
 <nav class="navbar bg-dark navbar-dark navbar-expand-lg sticky-top p-3">
 
     <div class="d-flex align-items-center w-75">
-        <a routerLink="/" class="navbar-brand">Przęglądarka zdjęć i postów</a>
+        <a routerLink="/" class="navbar-brand">Biuro Turystyczne</a>
         <div class="d-flex justify-content-end w-100">
             <span class="text-white d-none d-lg-block p-1 rounded" [ngClass]="numberOfAddedTrips < 10 ? 'bg-danger' : 'bg-success'">Ilość dodanych wycieczek: {{numberOfAddedTrips}}</span>
         </div>
@@ -17,10 +17,10 @@
                 <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/posts" routerLinkActive="active">Posty</a>
+                <a class="nav-link" routerLink="/cart" routerLinkActive="active">Koszyk</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/images" routerLinkActive="active">Zdjęcia</a>
+                <a class="nav-link" routerLink="/manage" routerLinkActive="active">Panel Sterowania</a>
             </li>
         </ul>
     </div>

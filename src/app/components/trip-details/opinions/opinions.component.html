@@ -1,0 +1,90 @@
+<div class="mt-5">
+
+    <h3>Opinie</h3>
+
+    <div class="d-flex align-items-center">
+        <h5>Średnia ocena: </h5>
+
+        <div>
+            <p class="bg-primary min-s rounded p-3 text-light shadow ms-3 border border-3 border-dark"><b>4.4 / 5</b></p>
+        </div>
+    </div>
+
+    <div>
+
+        <div>
+
+            <div>
+                <div>
+                    <p class="bg-primary min-s rounded p-1 text-light shadow"><b>4 / 5</b></p>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab et harum dolore, eum repudiandae sed modi, porro eos non, numquam sapiente corporis maiores in placeat voluptate? Mollitia qui consequuntur in?</p>
+                <hr>
+            </div>
+            <div>
+                <div>
+                    <p class="bg-primary min-s rounded p-1 text-light shadow"><b>2 / 5</b></p>
+                </div>
+                <p>Perspiciatis voluptate totam repellat soluta adipisci? Ratione maiores nisi saepe molestias facere laboriosam, iure quae tempora id, consequuntur rerum veritatis, incidunt mollitia. Cumque mollitia, molestias pariatur laudantium consectetur assumenda libero!</p>
+                <hr>
+            </div>
+            <div>
+                <div>
+                    <p class="bg-primary min-s rounded p-1 text-light shadow"><b>5 / 5</b></p>
+                </div>
+                <p>Quia cupiditate dicta provident et pariatur velit sint harum dolores ab magnam libero soluta facilis voluptatibus reprehenderit iure sequi molestiae vero distinctio, iste laboriosam numquam veniam odio officiis totam! Error?</p>
+                <hr>
+            </div>
+
+        </div>
+
+        <form #myForm="ngForm" (ngSubmit)="addOpinion(myForm.value)">
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Przekaż nam swoją opinię</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="text" rows="3" [(ngModel)]="opinion.text" required></textarea>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center">
+                <div class="rating">
+                    <label>
+                        <input type="radio" name="stars" value="1" [(ngModel)]="opinion.stars"/>
+                        <span class="icon"><i class="bi bi-star-fill"></i></span>
+                    </label>
+                    <label>
+                        <input type="radio" name="stars" value="2" [(ngModel)]="opinion.stars"/>
+                        <span class="icon"><i class="bi bi-star-fill"></i></span>
+                        <span class="icon"><i class="bi bi-star-fill"></i></span>
+                    </label>
+                    <label>
+                        <input type="radio" name="stars" value="3" [(ngModel)]="opinion.stars"/>
+                        <span class="icon"><i class="bi bi-star-fill"></i></span>
+                        <span class="icon"><i class="bi bi-star-fill"></i></span>
+                        <span class="icon"><i class="bi bi-star-fill"></i></span>   
+                    </label>
+                    <label>
+                        <input type="radio" name="stars" value="4" [(ngModel)]="opinion.stars"/>
+                        <span class="icon"><i class="bi bi-star-fill"></i></span>
+                        <span class="icon"><i class="bi bi-star-fill"></i></span>
+                        <span class="icon"><i class="bi bi-star-fill"></i></span>
+                        <span class="icon"><i class="bi bi-star-fill"></i></span>
+                    </label>
+                    <label>
+                        <input type="radio" name="stars" value="5" [(ngModel)]="opinion.stars"/>
+                        <span class="icon"><i class="bi bi-star-fill"></i></span>
+                        <span class="icon"><i class="bi bi-star-fill"></i></span>
+                        <span class="icon"><i class="bi bi-star-fill"></i></span>
+                        <span class="icon"><i class="bi bi-star-fill"></i></span>
+                        <span class="icon"><i class="bi bi-star-fill"></i></span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-2 px-3" [disabled]="checkValid(myForm.value)">
+                    <i class="bi bi-chat"></i> Dodaj opinię
+                </button>
+            </div>
+
+            
+        </form>
+
+    </div>
+</div>

@@ -8,4 +8,5 @@ export interface TripInterface {
   amountOfFreePlaces: number;
   description: string;
   imgSrc: string;
+  allImgSrc: string[];
   }

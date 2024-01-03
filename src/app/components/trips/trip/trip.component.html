@@ -3,7 +3,9 @@
         <h3 class="text-center p-3">{{trip.name | uppercase}}</h3>
 
         <div class="d-flex justify-content-center p-2">
-            <img [src]="trip.imgSrc" [alt]="trip.name" class="img-fluid border border-3 border-dark rounded-circle">
+            <a [routerLink]="['/trips/' + trip.id]">
+                <img [src]="trip.imgSrc" [alt]="trip.name" class="img-fluid border border-3 border-dark rounded-circle">
+            </a>
         </div>
         
         <hr>

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { TripInfoService } from '../../services/trip/trip-info.service';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })

@@ -14,4 +14,11 @@ export class TripService {
   getTrips() {
     return this.http.get<TripInterface[]>(this.apiUrl);
   }
+
+  getTrip(id: number) {
+
+    const url = this.apiUrl + "/" + id;
+
+    return this.http.get<TripInterface>(url);
+  }
 }

@@ -9,7 +9,12 @@
             "price": 2300,
             "amountOfFreePlaces": 11,
             "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ipsam sint consequuntur officiis iste amet eligendi, quisquam itaque voluptatum aperiam, minima nisi obcaecati deleniti molestiae rem! Iusto impedit id minima!",
-            "imgSrc": "assets/images/cities/small/berlin_small.jpeg"
+            "imgSrc": "assets/images/cities/small/berlin_small.jpeg",
+            "allImgSrc": [
+                "assets/images/cities/small/berlin_small.jpeg",
+                "assets/images/cities/small/chicago_small.jpeg",
+                "assets/images/cities/small/cracow_small.jpeg"
+            ]
         },
         {
             "id": 2,

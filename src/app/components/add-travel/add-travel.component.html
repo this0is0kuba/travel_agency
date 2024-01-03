@@ -1,0 +1,42 @@
+<div class="container d-flex justify-content-center">
+    <div class="w-50 mt-5 shadow p-3 rounded border border-5">
+
+        <h3 class="text-center">Dodaj Wycieczkę</h3>
+
+        <hr>
+
+        <form #addTripForm="ngForm" (ngSubmit)="onSubmit()">
+
+            <label for="name" class="form-label mt-3">Nazwa</label>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newTrip.name">
+
+            <label for="targetCountry" class="form-label mt-3">Kraj docelowy</label>
+            <input type="text" class="form-control" id="targetCountry" name="targetCountry" [(ngModel)]="newTrip.targetCountry">
+
+            <label for="startDate" class="form-label mt-3">Data rozpoczęcia</label>
+            <input type="date" class="form-control" id="startDate" name="startDate" [(ngModel)]="newTrip.startDate">
+
+            <label for="endDate" class="form-label mt-3">Data zakończenia</label>
+            <input type="date" class="form-control" id="endDate" name="endDate" [(ngModel)]="newTrip.endDate">
+
+            <label for="price" class="form-label mt-3">Cena</label>
+            <input type="number" class="form-control" id="price" name="price" [(ngModel)]="newTrip.price">
+
+            <label for="amountOfFreePlaces" class="form-label mt-3">Ilość wolnych miejsc</label>
+            <input type="number" class="form-control" id="amountOfFreePlaces" name="amountOfFreePlaces" [(ngModel)]="newTrip.amountOfFreePlaces">
+
+            <label for="description" class="form-label mt-3">Opis</label>
+            <textarea type="text" class="form-control" id="description" name="description" rows="3" [(ngModel)]="newTrip.description"></textarea>
+
+            <label for="minImg" class="form-label mt-3">Małe zdjęcie</label>
+            <input type="file" class="form-control" accept="image/*" id="minImg" name="minImg" [(ngModel)]="minImg">
+
+            <label for="imgs" class="form-label mt-3">Reszta zdjęć</label>
+            <input type="file" class="form-control" accept="image/*" id="imgs" name="imgs" multiple [(ngModel)]="allImgs">
+
+            <button type="submit" class="btn btn-primary mt-5">Utwórz nową wycieczkę</button>
+
+        </form>
+
+    </div>
+</div>

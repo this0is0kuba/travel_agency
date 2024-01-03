@@ -1,0 +1,11 @@
+<div *ngIf="tripInfo" class="container">
+
+  <h1 class="mt-3">{{tripInfo.name}}</h1>
+
+  <app-img-slider [imagesSrc]="tripInfo.allImgSrc" ></app-img-slider>
+
+  <app-complete-info [trip]="tripInfo"></app-complete-info>
+
+  <app-opinions></app-opinions>
+
+</div>
