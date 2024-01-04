@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { TripComponent } from './trip/trip.component';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { TripService } from '../../services/trip/trip.service';
 import { TripInterface } from '../../models/TripInterface';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrencyService } from '../../services/currency/currency.service';
+import { FilterComponent } from './filter/filter.component';
 
 @Component({
   selector: 'app-trips',
   standalone: true,
-  imports: [TripComponent, NgFor, HttpClientModule],
+  imports: [TripComponent, NgFor, HttpClientModule, FilterComponent, NgIf],
   templateUrl: './trips.component.html',
   styleUrl: './trips.component.css',
   providers: [TripService]
@@ -17,6 +18,7 @@ import { CurrencyService } from '../../services/currency/currency.service';
 export class TripsComponent implements OnInit{
 
   trip_list!: TripInterface[];
+  filteredTrips!: TripInterface[];
 
   selectedCurrency: string = "PLN";
   convertedPrices: number[] = [];
@@ -33,10 +35,11 @@ export class TripsComponent implements OnInit{
     this.tripService.getTrips().subscribe( trips => {
 
       this.trip_list = trips;
+      this.filteredTrips = [...trips];
 
-      for(let trip of this.trip_list) {
+      this.convertedPrices = [];
+      for(let trip of this.filteredTrips)
         this.convertedPrices.push(CurrencyService.convertPLN(trip.price, this.selectedCurrency));
-      }
 
       this.findTheCheapestTrip();
       this.findTheMostExpensiveTrip();
@@ -47,22 +50,22 @@ export class TripsComponent implements OnInit{
 
   findTheCheapestTrip(): void {
 
-    if(this.trip_list == undefined)
+    if(this.filteredTrips.length == 0)
       return;
 
-    this.theCheapestTrip =  this.trip_list.reduce((theCheapestTrip, currentTrip) => {
+    this.theCheapestTrip =  this.filteredTrips.reduce((theCheapestTrip, currentTrip) => {
       return currentTrip.price > theCheapestTrip.price ? currentTrip : theCheapestTrip
-    }, this.trip_list[0]).id;
+    }, this.filteredTrips[0]).id;
   }
 
   findTheMostExpensiveTrip(): void {
 
-    if(this.trip_list == undefined)
+    if(this.filteredTrips.length == 0)
       return;
 
-    this.theMostExpensiveTrip = this.trip_list.reduce((theMostExpensiveTrip, currentTrip) => {
+    this.theMostExpensiveTrip = this.filteredTrips.reduce((theMostExpensiveTrip, currentTrip) => {
       return currentTrip.price < theMostExpensiveTrip.price ? currentTrip : theMostExpensiveTrip
-    }, this.trip_list[0]).id;
+    }, this.filteredTrips[0]).id;
   }
 
   changeCurrency() {
@@ -75,5 +78,15 @@ export class TripsComponent implements OnInit{
     }
   }
 
+  updateTrips(filteredTrips: TripInterface[]) {
+    
+    this.filteredTrips = filteredTrips;
 
+    this.convertedPrices = [];
+    for(let trip of this.filteredTrips)
+        this.convertedPrices.push(CurrencyService.convertPLN(trip.price, this.selectedCurrency));
+
+    this.findTheCheapestTrip();
+    this.findTheMostExpensiveTrip();
+  }
 }

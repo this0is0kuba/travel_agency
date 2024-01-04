@@ -23,8 +23,6 @@ export class OpinionsComponent {
 
   checkValid(newOpinion: Opinion): boolean {
 
-    console.log("elo");
-
     if(newOpinion.text == undefined || newOpinion.stars == undefined)
       return true;
 

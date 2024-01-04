@@ -1,9 +1,11 @@
 <nav class="navbar bg-dark navbar-dark navbar-expand-lg sticky-top p-3">
 
-    <div class="d-flex align-items-center w-75">
+    <div class="d-flex align-items-center w-50">
         <a routerLink="/" class="navbar-brand">Biuro Turystyczne</a>
         <div class="d-flex justify-content-end w-100">
-            <span class="text-white d-none d-lg-block p-1 rounded" [ngClass]="numberOfAddedTrips < 10 ? 'bg-danger' : 'bg-success'">Ilość dodanych wycieczek: {{numberOfAddedTrips}}</span>
+            <span class="text-white p-1 rounded text-nowrap" [ngClass]="numberOfAddedTrips < 10 ? 'bg-danger' : 'bg-success'">
+                Ilość dodanych wycieczek: {{numberOfAddedTrips}}
+            </span>
         </div>
     </div>
     
@@ -17,10 +19,16 @@
                 <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/cart" routerLinkActive="active">Koszyk</a>
+                <a class="nav-link" routerLink="/trips" routerLinkActive="active">Wycieczki</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/manage" routerLinkActive="active">Panel Sterowania</a>
+                <a class="nav-link text-nowrap " routerLink="/manage" routerLinkActive="active">Panel Sterowania</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/history" routerLinkActive="active">Historia</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/cart" routerLinkActive="active">Koszyk</a>
             </li>
         </ul>
     </div>

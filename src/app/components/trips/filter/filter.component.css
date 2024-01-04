@@ -1,0 +1,9 @@
+.custome-multiple-option {
+    background-color: white;
+    border-radius: 10%;
+    margin: 2px;
+}
+
+.custome-multiple-option:checked {
+    background-color: rgb(108, 219, 247);
+}

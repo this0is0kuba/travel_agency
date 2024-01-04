@@ -1,0 +1,32 @@
+<div class="row rounded border p-3 shadow mt-2">
+
+    <div class="col-3 d-flex align-items-center justify-content-start">
+        <a >
+            <p class="m-0"><b>{{displayedIndex + 1}}. {{trip.name}}</b></p>
+        </a>
+    </div>
+
+
+    <div class="d-flex align-items-center justify-content-center col-3">
+        <!-- <i class="bi bi-cash h3 text-success"></i> -->
+        <h6 class="m-0 p-2">Koszt: {{convertedPrice| currency : selectedCurrency}}</h6>
+        <button class="btn btn-info rounded-circle" (click)="changeCurrency()" ><i class="bi bi-currency-exchange"></i></button>
+    </div>
+    
+    <div class="d-flex align-items-center justify-content-center col-3">
+        <button class="btn border border-dark rounded btn-success" [ngClass]="purchasedNumber == trip.amountOfFreePlaces ? 'invisible' : 'visible'" (click)="addTrip()">
+            <i class="bi bi-plus-lg"></i>
+        </button>
+    
+        <span class="p-2">Aktualnie Dodałeś: {{purchasedNumber}}</span>
+    
+        <button class="btn border border-dark rounded btn-danger" [ngClass]="purchasedNumber == 0 ? 'invisible' : 'visible'" (click)="removeTrip()">
+            <i class="bi bi-dash-lg"></i>
+        </button>
+    </div>
+
+    <div class="col-3 d-flex align-items-center justify-content-end">
+        <h6 class="m-0">Łączny Koszt: {{(convertedPrice * purchasedNumber)| currency : selectedCurrency}}</h6>
+    </div>
+    
+</div>

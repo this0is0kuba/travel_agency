@@ -17,8 +17,8 @@ export class NavbarComponent implements OnInit{
   constructor(private tripInfoService: TripInfoService) {}
 
   ngOnInit(): void {
-      this.numberOfAddedTrips = this.tripInfoService.numberOfAddedTrips;
 
+      this.numberOfAddedTrips = this.tripInfoService.numberOfAddedTrips;
       this.tripInfoService.getNumberOfAddedTrips().subscribe( value => this.numberOfAddedTrips = value);
   }
 }
