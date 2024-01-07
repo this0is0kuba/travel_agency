@@ -12,7 +12,8 @@ declare var bootstrap: any;
 })
 export class ImgSliderComponent {
 
-  @Input() imagesSrc?: string[] = [];
+  @Input() smallImagesSrc?: string[] = [];
+  @Input() largeImagesSrc?: string[] = [];
 
   display(id: number) {
 

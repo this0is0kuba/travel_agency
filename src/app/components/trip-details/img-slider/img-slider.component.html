@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <div class="d-flex justify-content-center mt-3 p-2 shadow rounded" id="images">
-    <img *ngFor="let imgSrc of imagesSrc; let i = index;" [src]="imgSrc" (click)="display(i)" alt="tripImg" class="img-fluid" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" [style.width]="(100 / imagesSrc!.length).toString() + '%'">
+    <img *ngFor="let imgSrc of smallImagesSrc; let i = index;" [src]="imgSrc" (click)="display(i)" alt="tripImg" class="img-fluid" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" [style.width]="(100 / smallImagesSrc!.length).toString() + '%'">
   </div>
 
   <!-- Modal -->
@@ -14,7 +14,7 @@
           
             <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner">
-                  <div *ngFor="let imgSrc of imagesSrc; let i = index" class="carousel-item" [ngClass]=" i === 0? 'active' : ''">
+                  <div *ngFor="let imgSrc of largeImagesSrc; let i = index" class="carousel-item" [ngClass]=" i === 0? 'active' : ''">
                     <img [src]="imgSrc" class="d-block w-100" alt="img">
                   </div>
                 </div>

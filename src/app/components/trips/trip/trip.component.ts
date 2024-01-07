@@ -29,17 +29,17 @@ export class TripComponent implements OnInit {
   ngOnInit(): void {
 
     this.numberOfDays = (new Date(this.trip.endDate).getTime() - new Date(this.trip.startDate).getTime()) / (1000 * 60 * 60 * 24);
-    this.purchasedNumber = this.tripInfoService.getPurchesedNumber(this.trip.id);
+    this.purchasedNumber = this.tripInfoService.getPurchasedNumber(this.trip._id);
   }
 
   addTrip() {
-    this.tripInfoService.incrementCounter(this.trip.id);
-    this.purchasedNumber = this.tripInfoService.getPurchesedNumber(this.trip.id);
+    this.tripInfoService.incrementCounter(this.trip._id);
+    this.purchasedNumber = this.tripInfoService.getPurchasedNumber(this.trip._id);
   }
 
   removeTrip() {
-    this.tripInfoService.decrementCounter(this.trip.id);
-    this.purchasedNumber = this.tripInfoService.getPurchesedNumber(this.trip.id);
+    this.tripInfoService.decrementCounter(this.trip._id);
+    this.purchasedNumber = this.tripInfoService.getPurchasedNumber(this.trip._id);
   }
 
   changeCurrency() {

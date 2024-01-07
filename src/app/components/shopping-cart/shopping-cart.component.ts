@@ -38,7 +38,7 @@ export class ShoppingCartComponent implements OnInit{
 
         const index = parseInt(i);
   
-        if(this.tripInfoService.getPurchesedNumber(index + 1) > 0)
+        if(this.tripInfoService.getPurchasedNumber(this.trips[index]._id) > 0)
           this.reservedTrips.push(this.trips[index]);
         
       }
@@ -49,7 +49,7 @@ export class ShoppingCartComponent implements OnInit{
         const convertedPrice: number = CurrencyService.convertPLN(trip.price, this.selectedCurrency);
 
         this.convertedPrices.push(convertedPrice);
-        this.totalCost += convertedPrice * this.tripInfoService.getPurchesedNumber(trip.id);
+        this.totalCost += convertedPrice * this.tripInfoService.getPurchasedNumber(trip._id);
       }
 
     })
@@ -61,20 +61,22 @@ export class ShoppingCartComponent implements OnInit{
     
     for(let priceIndex in this.reservedTrips) {
 
-      let priceInPLN: number = this.trips[priceIndex].price;
+      let priceInPLN: number = this.reservedTrips[priceIndex].price;
       this.convertedPrices[priceIndex] = CurrencyService.convertPLN(priceInPLN, this.selectedCurrency);
     }
     
     this.totalCost = 0
     for(let trip of this.reservedTrips)
-      this.totalCost += CurrencyService.convertPLN(trip.price, this.selectedCurrency) * this.tripInfoService.getPurchesedNumber(trip.id);
+      this.totalCost += CurrencyService.convertPLN(trip.price, this.selectedCurrency) * this.tripInfoService.getPurchasedNumber(trip._id);
   }
 
-  changePurchesed(info: {id: number, added: boolean}) {
+  changePurchased(info: {id: string, added: boolean}) {
 
+    const price = this.reservedTrips.filter( trip => trip._id == info.id)[0].price;
+    
     if(info.added)
-      this.totalCost += CurrencyService.convertPLN(this.trips[info.id - 1].price, this.selectedCurrency)
+      this.totalCost += CurrencyService.convertPLN(price, this.selectedCurrency)
     else
-      this.totalCost -= CurrencyService.convertPLN(this.trips[info.id - 1].price, this.selectedCurrency)
+      this.totalCost -= CurrencyService.convertPLN(price, this.selectedCurrency)
   }
 }

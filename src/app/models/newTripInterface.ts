@@ -1,5 +1,5 @@
-export interface TripInterface {
-  _id: string,
+export interface newTripInterface {
+  
   name: string;
   targetCountry: string;
   startDate: string;
@@ -7,8 +7,8 @@ export interface TripInterface {
   price: number;
   amountOfFreePlaces: number;
   description: string;
-  imgSrc: string;
-  allMiniImgSrc: string[],
-  allLargeImgSrc: string[]
-  __v: number
-  }
+
+  mainImg: File | null;
+  allMiniImg: File[] | undefined;
+  allLargeImg: File[] | undefined;
+}

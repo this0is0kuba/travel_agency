@@ -1,9 +1,10 @@
-<div class="border border-3 rounded h-100 d-flex flex-column shadow" [ngClass]="borderColorClass">
+<div [class]="'border border-3 rounded h-100 d-flex flex-column shadow position-relative ' + borderColorClass" [ngClass]="{'bg-dark-subtle': purchasedNumber == trip.amountOfFreePlaces}">
+
     <div>
         <h3 class="text-center p-3">{{trip.name | uppercase}}</h3>
 
         <div class="d-flex justify-content-center p-2">
-            <a [routerLink]="['/trips/' + trip.id]">
+            <a [routerLink]="['/trips/' + trip._id]">
                 <img [src]="trip.imgSrc" [alt]="trip.name" class="img-fluid border border-3 border-dark rounded-circle">
             </a>
         </div>
@@ -37,13 +38,13 @@
         </div>
 
         <div class="d-flex align-items-center justify-content-center m-2">
-            <button class="btn border border-dark rounded btn-success" [ngClass]="purchasedNumber == trip.amountOfFreePlaces ? 'invisible' : 'visible'" (click)="addTrip()">
+            <button class="btn border border-dark rounded btn-success z-2" [ngClass]="purchasedNumber == trip.amountOfFreePlaces ? 'invisible' : 'visible'" (click)="addTrip()">
                 <i class="bi bi-plus-lg"></i>
             </button>
 
             <span class="p-2">Aktualnie Dodałeś: {{purchasedNumber}}</span>
 
-            <button class="btn border border-dark rounded btn-danger" [ngClass]="purchasedNumber == 0 ? 'invisible' : 'visible'" (click)="removeTrip()">
+            <button class="btn border border-dark rounded btn-danger z-2" [ngClass]="purchasedNumber == 0 ? 'invisible' : 'visible'" (click)="removeTrip()">
                 <i class="bi bi-dash-lg"></i>
             </button>
         </div>

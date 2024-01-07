@@ -1,42 +1,50 @@
-<div class="container d-flex justify-content-center">
-    <div class="w-50 mt-5 shadow p-3 rounded border border-5">
+<div class="container-fluid">
 
-        <h3 class="text-center">Dodaj Wycieczkę</h3>
+    <div class="row w-100 d-flex justify-content-center m-0">
 
-        <hr>
+        <div class="col-12 col-md-6 mt-5 shadow p-3 rounded border border-5">
 
-        <form #addTripForm="ngForm" (ngSubmit)="onSubmit()">
+            <h3 class="text-center">Dodaj Wycieczkę</h3>
 
-            <label for="name" class="form-label mt-3">Nazwa</label>
-            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newTrip.name">
+            <hr>
 
-            <label for="targetCountry" class="form-label mt-3">Kraj docelowy</label>
-            <input type="text" class="form-control" id="targetCountry" name="targetCountry" [(ngModel)]="newTrip.targetCountry">
+            <form #addTripForm="ngForm" (ngSubmit)="onSubmit()">
 
-            <label for="startDate" class="form-label mt-3">Data rozpoczęcia</label>
-            <input type="date" class="form-control" id="startDate" name="startDate" [(ngModel)]="newTrip.startDate">
+                <label for="name" class="form-label mt-3">Nazwa</label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newTrip.name">
 
-            <label for="endDate" class="form-label mt-3">Data zakończenia</label>
-            <input type="date" class="form-control" id="endDate" name="endDate" [(ngModel)]="newTrip.endDate">
+                <label for="targetCountry" class="form-label mt-3">Kraj docelowy</label>
+                <input type="text" class="form-control" id="targetCountry" name="targetCountry" [(ngModel)]="newTrip.targetCountry">
 
-            <label for="price" class="form-label mt-3">Cena</label>
-            <input type="number" class="form-control" id="price" name="price" [(ngModel)]="newTrip.price">
+                <label for="startDate" class="form-label mt-3">Data rozpoczęcia</label>
+                <input type="date" class="form-control" id="startDate" name="startDate" [(ngModel)]="newTrip.startDate">
 
-            <label for="amountOfFreePlaces" class="form-label mt-3">Ilość wolnych miejsc</label>
-            <input type="number" class="form-control" id="amountOfFreePlaces" name="amountOfFreePlaces" [(ngModel)]="newTrip.amountOfFreePlaces">
+                <label for="endDate" class="form-label mt-3">Data zakończenia</label>
+                <input type="date" class="form-control" id="endDate" name="endDate" [(ngModel)]="newTrip.endDate">
 
-            <label for="description" class="form-label mt-3">Opis</label>
-            <textarea type="text" class="form-control" id="description" name="description" rows="3" [(ngModel)]="newTrip.description"></textarea>
+                <label for="price" class="form-label mt-3">Cena</label>
+                <input type="number" class="form-control" id="price" name="price" [(ngModel)]="newTrip.price">
 
-            <label for="minImg" class="form-label mt-3">Małe zdjęcie</label>
-            <input type="file" class="form-control" accept="image/*" id="minImg" name="minImg" [(ngModel)]="minImg">
+                <label for="amountOfFreePlaces" class="form-label mt-3">Ilość wolnych miejsc</label>
+                <input type="number" class="form-control" id="amountOfFreePlaces" name="amountOfFreePlaces" [(ngModel)]="newTrip.amountOfFreePlaces">
 
-            <label for="imgs" class="form-label mt-3">Reszta zdjęć</label>
-            <input type="file" class="form-control" accept="image/*" id="imgs" name="imgs" multiple [(ngModel)]="allImgs">
+                <label for="description" class="form-label mt-3">Opis</label>
+                <textarea type="text" class="form-control" id="description" name="description" rows="3" [(ngModel)]="newTrip.description"></textarea>
 
-            <button type="submit" class="btn btn-primary mt-5">Utwórz nową wycieczkę</button>
+                <label for="mainImg" class="form-label mt-3">Główne zdjęcie</label>
+                <input type="file" class="form-control" accept="image/*" id="mainImg" name="mainImg" (change)="onMainFileSelected($event)">
 
-        </form>
+                <label for="allMiniImg" class="form-label mt-3">Małe zdjęcia</label>
+                <input type="file" class="form-control" accept="image/*" id="allMiniImg" name="allMiniImg" multiple (change)="onMiniFilesSelected($event)">
 
+                <label for="allLargeImg" class="form-label mt-3">Duże zdjęcia</label>
+                <input type="file" class="form-control" accept="image/*" id="allLargeImg" name="allLargeImg" multiple (change)="onLargeFilesSelected($event)">
+
+                <button type="submit" class="btn btn-primary mt-5">Utwórz nową wycieczkę</button>
+
+            </form>
+
+        </div>
     </div>
+
 </div>

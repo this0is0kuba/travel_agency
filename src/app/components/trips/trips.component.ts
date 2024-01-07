@@ -23,8 +23,8 @@ export class TripsComponent implements OnInit{
   selectedCurrency: string = "PLN";
   convertedPrices: number[] = [];
 
-  theCheapestTrip: number = -1;
-  theMostExpensiveTrip: number = -1;
+  theCheapestTrip: string = '';
+  theMostExpensiveTrip: string = '';
 
   constructor(private tripService: TripService, private currencyService: CurrencyService) { }
 
@@ -55,7 +55,7 @@ export class TripsComponent implements OnInit{
 
     this.theCheapestTrip =  this.filteredTrips.reduce((theCheapestTrip, currentTrip) => {
       return currentTrip.price > theCheapestTrip.price ? currentTrip : theCheapestTrip
-    }, this.filteredTrips[0]).id;
+    }, this.filteredTrips[0])._id;
   }
 
   findTheMostExpensiveTrip(): void {
@@ -65,15 +65,16 @@ export class TripsComponent implements OnInit{
 
     this.theMostExpensiveTrip = this.filteredTrips.reduce((theMostExpensiveTrip, currentTrip) => {
       return currentTrip.price < theMostExpensiveTrip.price ? currentTrip : theMostExpensiveTrip
-    }, this.filteredTrips[0]).id;
+    }, this.filteredTrips[0])._id;
   }
 
   changeCurrency() {
+
     this.selectedCurrency = this.currencyService.getNextCurrency();
 
-    for(let priceIndex in this.convertedPrices) {
+    for(let priceIndex in this.filteredTrips) {
 
-      let priceInPLN: number = this.trip_list[priceIndex].price;
+      let priceInPLN: number = this.filteredTrips[priceIndex].price;
       this.convertedPrices[priceIndex] = CurrencyService.convertPLN(priceInPLN, this.selectedCurrency);
     }
   }

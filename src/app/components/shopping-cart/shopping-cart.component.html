@@ -4,7 +4,7 @@
 
     <div *ngFor="let trip of reservedTrips; let i = index" class="row">
         <app-single-item [trip]="trip" (changeCurrencyEvent)="changeCurrency()" [selectedCurrency]="selectedCurrency" 
-                         [convertedPrice]="convertedPrices[i]" [displayedIndex]="i" (chnagePurchesedNumber)="changePurchesed($event)">
+                         [convertedPrice]="convertedPrices[i]" [displayedIndex]="i" (chnagePurchesedNumber)="changePurchased($event)">
         </app-single-item>
     </div>
 

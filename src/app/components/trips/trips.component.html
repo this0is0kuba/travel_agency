@@ -4,7 +4,7 @@
         <app-filter [trips]="trip_list" (newTripsEvent)="updateTrips($event)"></app-filter>
 
         <div class="col-12 col-md-6 col-xl-4 mb-3" *ngFor="let trip of filteredTrips; index as i">
-                <app-trip [trip]="trip" [borderColorClass]="theCheapestTrip == trip.id ? 'border-success' : theMostExpensiveTrip == trip.id ? 'border-danger' : 'border-gray'"
+                <app-trip [trip]="trip" [borderColorClass]="theCheapestTrip == trip._id ? 'border-success' : theMostExpensiveTrip == trip._id ? 'border-danger' : 'border-gray'"
                 (changeCurrencyEvent)="changeCurrency()" [selectedCurrency]="selectedCurrency" [convertedPrice]="convertedPrices[i]">
                 </app-trip>
         </div>

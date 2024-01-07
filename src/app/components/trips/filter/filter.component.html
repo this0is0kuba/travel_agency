@@ -4,10 +4,7 @@
         <div class="col-auto">
             <label for="countries">Miejsce</label>
             <select class="form-select elo" id="countries" name="place" [(ngModel)]="filter.place" (ngModelChange)="filterTrips(myForm.value)" multiple size="3">
-                <option value="Polska" class="custome-multiple-option">Polska</option>
-                <option value="Francja" class="custome-multiple-option">Francja</option>
-                <option value="Stancy Zjednoczone" class="custome-multiple-option">Stancy Zjednoczone</option>
-                <option value="Turcja" class="custome-multiple-option">Turcja</option>
+                <option *ngFor="let country of countries" [value]="country" class="custome-multiple-option">{{country}}</option>
             </select>
         </div>
 
