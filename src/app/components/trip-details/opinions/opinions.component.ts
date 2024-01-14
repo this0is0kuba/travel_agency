@@ -12,6 +12,7 @@ import { Opinion } from '../../../models/Opinion';
 export class OpinionsComponent {
 
   opinion: Opinion = {
+    title: "",
     text: "",
     stars: 0
   };
@@ -23,10 +24,13 @@ export class OpinionsComponent {
 
   checkValid(newOpinion: Opinion): boolean {
 
-    if(newOpinion.text == undefined || newOpinion.stars == undefined)
+    if(newOpinion.text == undefined || newOpinion.stars == undefined || newOpinion.title == undefined)
       return true;
 
-    if(newOpinion.text?.trim() == "" || newOpinion.stars == 0)
+    if(newOpinion.text?.trim() == "" || newOpinion.stars == 0 || newOpinion.title?.trim() == "")
+      return true;
+
+    if(newOpinion.text?.trim().length < 50 || newOpinion.text?.trim().length > 500)
       return true;
 
     return false;

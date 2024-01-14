@@ -39,8 +39,14 @@
         </div>
 
         <form #myForm="ngForm" (ngSubmit)="addOpinion(myForm.value)">
+
+            <div class="mt-5">
+                <label for="title" class="form-label">Temat</label>
+                <input type="text" class="form-control" id="title" [(ngModel)]="opinion.title" name="title" required>
+            </div>
+
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Przekaż nam swoją opinię</label>
+                <label for="exampleFormControlTextarea1">Twój komentarz</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" name="text" rows="3" [(ngModel)]="opinion.text" required></textarea>
             </div>
 
