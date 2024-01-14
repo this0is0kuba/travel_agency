@@ -1,0 +1,35 @@
+<div class="container">
+
+    <div *ngIf="userLogged; else elseBlock" class="row w-100 d-flex justify-content-center m-0">
+        <div class="col-12 col-md-6 mt-5 shadow p-3 rounded border border-5">
+    
+            <h3 class="p-3">Twoje dane</h3>
+        
+            <ul class="list-group p-3">
+                <li class="list-group-item"><b>Email:</b>{{userInfo.email}}</li>
+                <li class="list-group-item"><b>Imię:</b>{{userInfo.first_name}}</li>
+                <li class="list-group-item"><b>Nazwisko:</b>{{userInfo.last_name}}</li>
+                <li class="list-group-item"><b>Data urodzenia:</b>{{userInfo.date_of_birth}}</li>
+            </ul>
+            
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-info text-light mt-3" (click)="logOut()" >Wyloguj się</button>
+            </div>
+        </div>
+    </div>
+
+    <ng-template #elseBlock>
+        <div class="row w-100 d-flex justify-content-center m-0">
+            <div class="col-12 col-md-6 mt-5 shadow p-3 rounded border border-5">
+        
+                <h3 class="p-3 text-center">Nie jesteś aktualnie zalogowany</h3>
+                
+                <div class="d-flex justify-content-center">
+                    <a routerLink="/login" class="btn btn-info text-light mt-3">Zaloguj się</a>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+</div>
+

@@ -1,0 +1,36 @@
+<div class="container-fluid">
+
+    <div class="row w-100 d-flex justify-content-center m-0">
+
+        <div class="col-12 col-md-6 mt-5 shadow p-3 rounded border border-5">
+
+            <h3 class="text-center">Rejestracja</h3>
+
+            <hr>
+
+            <form #addUserForm="ngForm" (ngSubmit)="onSubmit(addUserForm.value)">
+
+                <label for="email" class="form-label mt-3">Email</label>
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="new_user.email">
+
+                <label for="password" class="form-label mt-3">Hasło</label>
+                <input type="password" class="form-control" id="password" name="password" [(ngModel)]="new_user.password">
+
+                <label for="repeated_password" class="form-label mt-3">Powtórz hasło</label>
+                <input type="password" class="form-control" id="repeated_password" name="repeated_password" [(ngModel)]="new_user.repeated_password">
+
+                <label for="first_name" class="form-label mt-3">Imię</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" [(ngModel)]="new_user.first_name">
+
+                <label for="last_name" class="form-label mt-3">Nazwisko</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" [(ngModel)]="new_user.last_name">
+
+                <button type="submit" class="btn btn-primary mt-5">Utwórz konto</button>
+
+                <p class="mt-4" >Posiadasz już konto? <a routerLink="/login">Logowanie</a></p>
+
+            </form>
+
+        </div>
+    </div>
+</div>
