@@ -50,6 +50,15 @@
                 <p>{{opinion.contents}}</p>
                 <hr>
             </div>
+            <div *ngFor="let createdOpinion of allCreatedOpinions">
+                <div class="mb-2 d-flex align-items-center">
+                    <span class="bg-primary min-s rounded p-1 text-light shadow"><b>{{createdOpinion.stars}} / 5</b></span>
+                    <span class="ps-2" ><b>{{createdOpinion.userName}}</b></span>
+                </div>
+                <h5>{{createdOpinion.title}}</h5>
+                <p>{{createdOpinion.contents}}</p>
+                <hr>
+            </div>
 
         </div>
 

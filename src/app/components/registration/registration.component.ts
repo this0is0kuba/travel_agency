@@ -116,14 +116,14 @@ export class RegistrationComponent {
     const dateOfBirthField = document.getElementById('dateOfBirth');
     if(newUser.dateOfBirth == '') {
      
-      emailField?.classList.remove('is-valid');
-      emailField?.classList.add('is-invalid');
+      dateOfBirthField?.classList.remove('is-valid');
+      dateOfBirthField?.classList.add('is-invalid');
 
       isValidationSuccess = false;
     }
     else {
-      emailField?.classList.remove('is-invalid');
-      emailField?.classList.add('is-valid');
+      dateOfBirthField?.classList.remove('is-invalid');
+      dateOfBirthField?.classList.add('is-valid');
     }
 
     // more validation rules

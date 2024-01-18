@@ -25,6 +25,7 @@ export class OpinionsComponent implements OnInit {
   @Input() tripId!: string;
   allOpinions: OpinionInterface[] = [];
   averageRating = 0;
+  allCreatedOpinions: OpinionInterface[] = [];
 
   constructor(private opinionService: OpinionService, private authServiceInfo: AuthInfoService) {}
 
@@ -51,9 +52,9 @@ export class OpinionsComponent implements OnInit {
     newOpinion.tripId = this.tripId;
     newOpinion.userName = this.authServiceInfo.currentUserSignal()!.user.firstName;
 
-    this.opinionService.createOpinionForTrip(newOpinion).subscribe( response => {
-      window.location.reload();
-    })
+    this.opinionService.createOpinionForTrip(newOpinion).subscribe()
+    
+    this.allCreatedOpinions.push(newOpinion);
   }
 
   checkValid(newOpinion: OpinionInterface): boolean {
