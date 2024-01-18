@@ -41,4 +41,13 @@ export class TripInfoService {
 
     return this.numbersOfAllAddedTrips[id];
   }
+
+  reset() {
+    this.numberOfAddedTrips = 0;
+
+    for(let key in this.numbersOfAllAddedTrips) 
+      this.numbersOfAllAddedTrips[key] = 0;
+
+    this.subject.next(0);
+  }
 }

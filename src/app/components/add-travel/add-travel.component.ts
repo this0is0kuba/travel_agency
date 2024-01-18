@@ -12,8 +12,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [FormsModule, HttpClientModule, CommonModule],
   templateUrl: './add-travel.component.html',
-  styleUrl: './add-travel.component.css',
-  providers: [TripService]
+  styleUrl: './add-travel.component.css'
 })
 export class AddTravelComponent {
 

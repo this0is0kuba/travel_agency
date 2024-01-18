@@ -11,8 +11,7 @@ import { AuthInfoService } from '../../services/auth/auth-info.service';
   standalone: true,
   imports: [FormsModule, RouterLink, HttpClientModule],
   templateUrl: './registration.component.html',
-  styleUrl: './registration.component.css',
-  providers: [AuthService]
+  styleUrl: './registration.component.css'
 })
 export class RegistrationComponent {
 
@@ -20,9 +19,9 @@ export class RegistrationComponent {
     email: '',
     password: '',
     repeated_password: '',
-    first_name: '',
-    last_name: '',
-    date_of_birth: ''
+    firstName: '',
+    lastName: '',
+    dateOfBirth: ''
   }
 
   constructor(private authService: AuthService, private authInfoService: AuthInfoService, private router: Router) {}
@@ -87,8 +86,8 @@ export class RegistrationComponent {
     }
 
 
-    const firstNameField = document.getElementById('first_name');
-    if(newUser.first_name == '') {
+    const firstNameField = document.getElementById('firstName');
+    if(newUser.firstName == '') {
      
       firstNameField?.classList.remove('is-valid');
       firstNameField?.classList.add('is-invalid');
@@ -101,8 +100,8 @@ export class RegistrationComponent {
     }
 
 
-    const lastNameField = document.getElementById('last_name');
-    if(newUser.last_name == '') {
+    const lastNameField = document.getElementById('lastName');
+    if(newUser.lastName == '') {
      
       lastNameField?.classList.remove('is-valid');
       lastNameField?.classList.add('is-invalid');
@@ -114,20 +113,18 @@ export class RegistrationComponent {
       lastNameField?.classList.add('is-valid');
     }
 
-
-    const dateOfBirthField = document.getElementById('date_of_birth');
-    if(newUser.date_of_birth == '') {
+    const dateOfBirthField = document.getElementById('dateOfBirth');
+    if(newUser.dateOfBirth == '') {
      
-      dateOfBirthField?.classList.remove('is-valid');
-      dateOfBirthField?.classList.add('is-invalid');
+      emailField?.classList.remove('is-valid');
+      emailField?.classList.add('is-invalid');
 
       isValidationSuccess = false;
     }
     else {
-      dateOfBirthField?.classList.remove('is-invalid');
-      dateOfBirthField?.classList.add('is-valid');
+      emailField?.classList.remove('is-invalid');
+      emailField?.classList.add('is-valid');
     }
-
 
     // more validation rules
     if(newUser.repeated_password != newUser.password) {

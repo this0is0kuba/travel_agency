@@ -1,10 +1,12 @@
 import { Injectable, signal } from '@angular/core';
-import { UserIntrface } from '../../models/UserInterface';
+import { UserInterface } from '../../models/UserInterface';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthInfoService {
 
-  public currentUserSignal = signal<UserIntrface | null | undefined>(undefined);
+  public currentUserSignal = signal<UserInterface | null | undefined>(undefined);
+  public isUserChecked: BehaviorSubject<boolean> = new BehaviorSubject(false);
 }

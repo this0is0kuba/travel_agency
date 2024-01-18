@@ -12,8 +12,7 @@ import { FilterComponent } from './filter/filter.component';
   standalone: true,
   imports: [TripComponent, NgFor, HttpClientModule, FilterComponent, NgIf],
   templateUrl: './trips.component.html',
-  styleUrl: './trips.component.css',
-  providers: [TripService]
+  styleUrl: './trips.component.css'
 })
 export class TripsComponent implements OnInit{
 

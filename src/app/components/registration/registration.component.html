@@ -19,11 +19,14 @@
                 <label for="repeated_password" class="form-label mt-3">Powtórz hasło</label>
                 <input type="password" class="form-control" id="repeated_password" name="repeated_password" [(ngModel)]="new_user.repeated_password">
 
-                <label for="first_name" class="form-label mt-3">Imię</label>
-                <input type="text" class="form-control" id="first_name" name="first_name" [(ngModel)]="new_user.first_name">
+                <label for="firstName" class="form-label mt-3">Imię</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="new_user.firstName">
 
-                <label for="last_name" class="form-label mt-3">Nazwisko</label>
-                <input type="text" class="form-control" id="last_name" name="last_name" [(ngModel)]="new_user.last_name">
+                <label for="lastName" class="form-label mt-3">Nazwisko</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="new_user.lastName">
+
+                <label for="dateOfBirth" class="form-label mt-3">Data urodzenia</label>
+                <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" [(ngModel)]="new_user.dateOfBirth">
 
                 <button type="submit" class="btn btn-primary mt-5">Utwórz konto</button>
 

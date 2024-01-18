@@ -3,6 +3,7 @@ import { UserInfoInterface } from '../../models/UserInfoInterface';
 import { AuthInfoService } from '../../services/auth/auth-info.service';
 import { NgIf } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
+import { TripInfoService } from '../../services/trip/trip-info.service';
 
 @Component({
   selector: 'app-profil',
@@ -16,30 +17,39 @@ export class ProfilComponent {
   userInfo: UserInfoInterface = {
     _id: '',
     email: '',
-    first_name: '',
-    last_name: '',
-    date_of_birth: ''
+    firstName: '',
+    lastName: '',
+    dateOfBirth: '',
+    role: []
   }
 
   userLogged: boolean = false;
+  userChecked: boolean = false;
   
-  constructor(private authInfoService: AuthInfoService, private router: Router) {}
+  constructor(private authInfoService: AuthInfoService, private router: Router, private tripInfoService: TripInfoService) {}
 
   ngOnInit(): void {
-    
-    const loginSignal = this.authInfoService.currentUserSignal(); 
 
-    console.log(loginSignal);
+    this.authInfoService.isUserChecked.subscribe( (value) => {
 
-    if(loginSignal != undefined && loginSignal != null)
-      this.userLogged = true;
+      if(value == true) {
+        const loginSignal = this.authInfoService.currentUserSignal(); 
+
+        if(loginSignal !== undefined && loginSignal !== null) {
+          this.userLogged = true;
+          this.userInfo = loginSignal!.user;
+        }
+      }
+
+      this.userChecked = value;
+    })
   }
 
   logOut() {
-    console.log("log out");
     this.authInfoService.currentUserSignal.set(null);
     localStorage.removeItem('token')
 
+    this.tripInfoService.reset();
     this.router.navigate(["/login"])
   }
 }

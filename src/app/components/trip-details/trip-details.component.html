@@ -6,7 +6,7 @@
 
   <app-complete-info [trip]="tripInfo"></app-complete-info>
 
-  <app-opinions></app-opinions>
+  <app-opinions [tripId]="tripInfo._id" ></app-opinions>
 
   <app-remove-trip [tripId]="tripInfo._id" ></app-remove-trip>
 

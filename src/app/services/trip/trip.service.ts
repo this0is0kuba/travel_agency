@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TripInterface } from '../../models/TripInterface';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { newTripInterface } from '../../models/newTripInterface';
 
 @Injectable({
@@ -59,5 +59,12 @@ export class TripService {
     }
     
     return this.http.post(url, formData);
+  }
+
+  update(id: string, trip: TripInterface) {
+
+    const url = this.apiUrl + "/" + id;
+
+    return this.http.put(url, trip);
   }
 }

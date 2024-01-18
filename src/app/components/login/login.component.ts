@@ -10,8 +10,7 @@ import { AuthInfoService } from '../../services/auth/auth-info.service';
   standalone: true,
   imports: [FormsModule, RouterLink],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
-  providers: [AuthService]
+  styleUrl: './login.component.css'
 })
 export class LoginComponent {
 
@@ -27,13 +26,48 @@ export class LoginComponent {
     if(!this.validaton(loginUser)) 
       return;
 
-    this.authService.loginUser(loginUser).subscribe(response => {
+    const loginFeedbackField = document.getElementById('login-feedback');
+    loginFeedbackField!.style.display = "none"
 
-        console.log(response);
+    this.authService.loginUser(loginUser).subscribe( {
+
+      next: (response) => {
         localStorage.setItem('token', response.token);
         this.authInfoService.currentUserSignal.set(response);
         this.router.navigate(['/home'])
+      },
+
+      error: (err) => {
+        const errorMessage = err.error.message;
+        const emailField = document.getElementById('email');
+        const passwordField = document.getElementById('password');
+
+        emailField?.classList.remove('is-invalid');
+        emailField?.classList.add('is-valid');
+        passwordField?.classList.remove('is-invalid');
+        passwordField?.classList.add('is-valid');
+
+        if(errorMessage === 'incorrect email') {
+
+          loginFeedbackField!.style.display = "block"
+          loginFeedbackField!.children[0].textContent = "Użytkownik o podanym email-u nie istnieje";
+          
+          emailField?.classList.remove('is-valid');
+          emailField?.classList.add('is-invalid');
+        }
+
+        if(errorMessage === 'incorrect password') {
+
+          loginFeedbackField!.style.display = "block"
+          loginFeedbackField!.children[0].textContent = "Błędne hasło";
+
+          passwordField?.classList.remove('is-valid');
+          passwordField?.classList.add('is-invalid');
+        }
+      }
+
     })
+
   }
 
   validaton(newUser: UserLoginInterface): boolean {

@@ -10,6 +10,10 @@
 
             <form #loginUserform="ngForm" (ngSubmit)="onSubmit(loginUserform.value)">
 
+                <div class="invalid-feedback rounded border border border-danger p-1" id="login-feedback">
+                    <h5 class="text-center"></h5>
+                </div>
+
                 <label for="email" class="form-label mt-3">Email</label>
                 <input type="email" class="form-control" id="email" name="email" [(ngModel)]="user_login.email">
 

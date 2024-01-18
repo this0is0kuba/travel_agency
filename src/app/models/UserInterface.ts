@@ -1,4 +1,6 @@
-export interface UserIntrface {
-    email: string,
+import { UserInfoInterface } from "./UserInfoInterface";
+
+export interface UserInterface {
+    user: UserInfoInterface,
     token: string
 }

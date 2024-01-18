@@ -14,8 +14,7 @@ import { RemoveTripComponent } from './remove-trip/remove-trip.component';
   standalone: true,
   imports: [HttpClientModule, ImgSliderComponent, CompleteInfoComponent, NgIf, OpinionsComponent, RemoveTripComponent],
   templateUrl: './trip-details.component.html',
-  styleUrl: './trip-details.component.css',
-  providers: [TripService]
+  styleUrl: './trip-details.component.css'
 })
 
 export class TripDetailsComponent implements OnInit{

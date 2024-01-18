@@ -6,7 +6,7 @@
         <h5>Średnia ocena: </h5>
 
         <div>
-            <p class="bg-primary min-s rounded p-3 text-light shadow ms-3 border border-3 border-dark"><b>4.4 / 5</b></p>
+            <p class="bg-primary min-s rounded p-3 text-light shadow ms-3 border border-3 border-dark"><b>{{averageRating.toFixed(1)}} / 5</b></p>
         </div>
     </div>
 
@@ -15,30 +15,45 @@
         <div>
 
             <div>
-                <div>
-                    <p class="bg-primary min-s rounded p-1 text-light shadow"><b>4 / 5</b></p>
+                <div class="mb-2 d-flex align-items-center">
+                    <span class="bg-primary min-s rounded p-1 m-0 text-light shadow"><b>5 / 5</b></span>
+                    <span class="ps-2" ><b>Anna</b></span>
                 </div>
+                <h5>Super Wycieczka</h5>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab et harum dolore, eum repudiandae sed modi, porro eos non, numquam sapiente corporis maiores in placeat voluptate? Mollitia qui consequuntur in?</p>
                 <hr>
             </div>
             <div>
-                <div>
-                    <p class="bg-primary min-s rounded p-1 text-light shadow"><b>2 / 5</b></p>
+                <div class="mb-2 d-flex align-items-center">
+                    <span class="bg-primary min-s rounded p-1 text-light shadow"><b>3 / 5</b></span>
+                    <span class="ps-2" ><b>Jan</b></span>
                 </div>
+                <h5>Średnie</h5>
                 <p>Perspiciatis voluptate totam repellat soluta adipisci? Ratione maiores nisi saepe molestias facere laboriosam, iure quae tempora id, consequuntur rerum veritatis, incidunt mollitia. Cumque mollitia, molestias pariatur laudantium consectetur assumenda libero!</p>
                 <hr>
             </div>
             <div>
-                <div>
-                    <p class="bg-primary min-s rounded p-1 text-light shadow"><b>5 / 5</b></p>
+                <div class="mb-2 d-flex align-items-center">
+                    <span class="bg-primary min-s rounded p-1 text-light shadow"><b>4 / 5</b></span>
+                    <span class="ps-2" ><b>Adam</b></span>
                 </div>
+                <h5>Udany wyjazd</h5>
                 <p>Quia cupiditate dicta provident et pariatur velit sint harum dolores ab magnam libero soluta facilis voluptatibus reprehenderit iure sequi molestiae vero distinctio, iste laboriosam numquam veniam odio officiis totam! Error?</p>
+                <hr>
+            </div>
+            <div *ngFor="let opinion of allOpinions">
+                <div class="mb-2 d-flex align-items-center">
+                    <span class="bg-primary min-s rounded p-1 text-light shadow"><b>{{opinion.stars}} / 5</b></span>
+                    <span class="ps-2" ><b>{{opinion.userName}}</b></span>
+                </div>
+                <h5>{{opinion.title}}</h5>
+                <p>{{opinion.contents}}</p>
                 <hr>
             </div>
 
         </div>
 
-        <form #myForm="ngForm" (ngSubmit)="addOpinion(myForm.value)">
+        <form #myForm="ngForm" (ngSubmit)="addOpinion()">
 
             <div class="mt-5">
                 <label for="title" class="form-label">Temat</label>
@@ -46,8 +61,8 @@
             </div>
 
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Twój komentarz</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" name="text" rows="3" [(ngModel)]="opinion.text" required></textarea>
+                <label for="contents">Twój komentarz</label>
+                <textarea class="form-control" id="contents" name="contents" rows="3" [(ngModel)]="opinion.contents" required></textarea>
             </div>
 
             <div class="d-flex align-items-center justify-content-center">

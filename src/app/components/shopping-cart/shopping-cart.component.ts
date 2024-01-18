@@ -6,14 +6,17 @@ import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { SingleItemComponent } from './single-item/single-item.component';
 import { CurrencyService } from '../../services/currency/currency.service';
+import { HistoryService } from '../../services/trip/history.service';
+import { AuthInfoService } from '../../services/auth/auth-info.service';
+import { HistoryInterface } from '../../models/HistoryInterface';
+import { newTripInterface } from '../../models/newTripInterface';
 
 @Component({
   selector: 'app-shopping-cart',
   standalone: true,
   imports: [NgFor, HttpClientModule, SingleItemComponent, CommonModule, NgIf],
   templateUrl: './shopping-cart.component.html',
-  styleUrl: './shopping-cart.component.css',
-  providers: [TripService]
+  styleUrl: './shopping-cart.component.css'
 })
 export class ShoppingCartComponent implements OnInit{
 
@@ -25,7 +28,8 @@ export class ShoppingCartComponent implements OnInit{
 
   totalCost: number = 0;
 
-  constructor(private tripService: TripService, private tripInfoService: TripInfoService, private currencyService: CurrencyService) {}
+  constructor(private tripService: TripService, private tripInfoService: TripInfoService, private currencyService: CurrencyService,
+              private historyService: HistoryService, private authInfoService: AuthInfoService) {}
 
   ngOnInit(): void {
 
@@ -78,5 +82,41 @@ export class ShoppingCartComponent implements OnInit{
       this.totalCost += CurrencyService.convertPLN(price, this.selectedCurrency)
     else
       this.totalCost -= CurrencyService.convertPLN(price, this.selectedCurrency)
+  }
+
+  buy() {
+
+    const userId = this.authInfoService.currentUserSignal()!.user._id;
+    let counter: number = this.reservedTrips.filter(element => this.tripInfoService.getPurchasedNumber(element._id) != 0).length;
+
+    for(let rTrip of this.reservedTrips) {
+
+      const purchasedNumber = this.tripInfoService.getPurchasedNumber(rTrip._id);
+
+      if(purchasedNumber == 0)
+        continue;
+
+      const history: HistoryInterface = {
+        tripId: rTrip._id,
+        userId: userId,
+        amount: purchasedNumber
+      }
+
+      this.historyService.createHistoryForUser(history).subscribe()
+
+      const updatedTrip: TripInterface = {
+        ...rTrip
+      }
+
+      updatedTrip.amountOfFreePlaces = updatedTrip.amountOfFreePlaces - purchasedNumber;
+
+      this.tripService.update(rTrip._id, updatedTrip).subscribe( response => {
+        counter -= 1;
+        
+        if(counter == 0)
+          window.location.reload();
+
+      }) 
+    }
   }
 }
