@@ -2,10 +2,17 @@ import { inject } from "@angular/core";
 import { AuthInfoService } from "../services/auth/auth-info.service";
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from "@angular/router";
 
-export const authGuard = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+function sleep(ms: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}  
+
+export const authGuard = async (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
 
     const authInfoService = inject(AuthInfoService);
     const router = inject(Router);
+
+    if(authInfoService.currentUserSignal() === undefined || authInfoService.currentUserSignal() === null) 
+        await sleep(500);
 
     if(authInfoService.currentUserSignal() === undefined || authInfoService.currentUserSignal() === null) {
 
