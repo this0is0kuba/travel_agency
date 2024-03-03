@@ -1,27 +1,24 @@
 # TravelAgency
+It's a web application for buying, commenting and managing trips.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
+## Description
+Application created in Angular allows users to search the trips and opinions about them. If user wants to add the trip to shopping cart then he has to log in or create new account.
+Logged user can buy all trips from his cart and add new oppinions about them in an view of the trip.
+There is a admin role too which grant you a permision for delete existing trips and add new trips.
 
-## Development server
+## Server
+Angular application communicate with server to access all data. Server is created using Node.js and is connected to MongoDB which stored all info about users and trips.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Sample website images
 
-## Code scaffolding
+|            Main tab with trips              |
+| ------------------------------------------- |
+| <img src="images/travels.png"> |
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+|              Main view with travel        |              Zoom of photo                 |              Opinions                 |
+| ----------------------------------------- |--------------------------------------------| --------------------------------------|
+|<img src="images/trip.png"> | <img src="images/photo.png"> | <img src="images/opinions.png"> |
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+|              Shopping cart                  |
+| ------------------------------------------- |
+| <img src="images/shopping-cart.png"> |
