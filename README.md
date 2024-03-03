@@ -7,7 +7,7 @@ Logged user can buy all trips from his cart and add new oppinions about them in 
 There is a admin role too which grant you a permision for delete existing trips and add new trips.
 
 ## Server
-Angular application communicate with server to access all data. Server is created using Node.js and is connected to MongoDB which stored all info about users and trips.
+Angular application communicate with server to access all data. Server is created using Node.js and is connected to MongoDB which stored all info about users and trips. Link to [repo](https://github.com/this0is0kuba/travel_agency_server).
 
 ## Sample website images
 
